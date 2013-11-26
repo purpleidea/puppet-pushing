@@ -32,7 +32,7 @@ define fibonacci(
 		exec { "${name}: F(0)":
 			command => "/bin/echo 0 > ${fibdir}/0",
 			creates => "${fibdir}/0",
-			require => File["${vardir}/fibonacci/"],
+			require => File["${fibdir}/"],
 		}
 
 	} elsif "${n}" == '1' {
@@ -43,7 +43,7 @@ define fibonacci(
 		exec { "${name}: F(1)":
 			command => "/bin/echo 1 > ${fibdir}/1",
 			creates => "${fibdir}/1",
-			require => File["${vardir}/fibonacci/"],
+			require => File["${fibdir}/"],
 		}
 
 	} else {
@@ -80,7 +80,7 @@ define fibonacci(
 				command => "/bin/echo ${fn} > ${fibdir}/${n}",
 				creates => "${fibdir}/${n}",
 				require => [
-					File["${vardir}/fibonacci/"],
+					File["${fibdir}/"],
 					Fibonacci["${name}: F(${n}-1)"],
 					Fibonacci["${name}: F(${n}-2)"],
 				],
