@@ -13,6 +13,7 @@ Module specific notes:
 * Each example doesn't require all of these modules. Each example is different.
 
 Dependencies:
+* puppetlabs-stdlib
 * puppet-common
 * puppet-runonce
 * puppet-fsm
