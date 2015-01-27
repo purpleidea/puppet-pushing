@@ -10,7 +10,9 @@
 - '::pushing'
 :docker: false
 :cachier: false
-:vms: []
+:vms:
+- :name: pushing0
+  :puppet: true
 :namespace: pushing
 :count: 3
 :username: ''
