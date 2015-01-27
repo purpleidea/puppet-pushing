@@ -48,13 +48,13 @@ define fibonacci(
 
 	} else {
 
-		$minus1 = inline_template('<%= n.to_i - 1 %>')
+		$minus1 = inline_template('<%= @n.to_i - 1 %>')
 		fibonacci { "${name}: F(${n}-1)":
 			n => $minus1,
 			intermediate => true,
 		}
 
-		$minus2 = inline_template('<%= n.to_i - 2 %>')
+		$minus2 = inline_template('<%= @n.to_i - 2 %>')
 		fibonacci { "${name}: F(${n}-2)":
 			n => $minus2,
 			intermediate => true,
@@ -63,15 +63,15 @@ define fibonacci(
 		# this is cheating because it's not using a puppetmaster
 		# who can figure out what the problem with this is ?
 
-		#$fn = inline_template('<%= f1=fibdir+"/"+minus1; f2=fibdir+"/"+minus2; ((File.exist?(f1) and File.exist?(f2)) ? (File.open(f1, "r").read.to_i + File.open(f2, "r").read.to_i) : -1) %>')
+		#$fn = inline_template('<%= f1=@fibdir+"/"+@minus1; f2=@fibdir+"/"+@minus2; ((File.exist?(f1) and File.exist?(f2)) ? (File.open(f1, "r").read.to_i + File.open(f2, "r").read.to_i) : -1) %>')
 		# split into two version:
-		$fn1 = inline_template('<%= f1=fibdir+"/"+minus1; (File.exist?(f1) ? File.open(f1, "r").read.to_i : -1) %>')
-		$fn2 = inline_template('<%= f2=fibdir+"/"+minus2; (File.exist?(f2) ? File.open(f2, "r").read.to_i : -1) %>')
+		$fn1 = inline_template('<%= f1=@fibdir+"/"+@minus1; (File.exist?(f1) ? File.open(f1, "r").read.to_i : -1) %>')
+		$fn2 = inline_template('<%= f2=@fibdir+"/"+@minus2; (File.exist?(f2) ? File.open(f2, "r").read.to_i : -1) %>')
 
 		if (("${fn1}" == '-1') or ("${fn2}" == '-1')) {
 			$fn = '-1'
 		} else {
-			$fn = inline_template('<%= fn1.to_i+fn2.to_i %>')
+			$fn = inline_template('<%= @fn1.to_i+@fn2.to_i %>')
 		}
 
 		if "${fn}" != '-1' {	# did the lookup work ?
