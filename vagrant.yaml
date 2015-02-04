@@ -4,7 +4,17 @@
 :image: centos-7.0
 :boxurlprefix: ''
 :sync: rsync
-:folder: pushing
+:folder: ''
+:extern:
+- type: git
+  repository: https://github.com/purpleidea/puppet-common
+  directory: common
+- type: git
+  repository: https://github.com/purpleidea/puppet-pushing
+  directory: pushing
+- type: git
+  repository: https://github.com/purpleidea/puppet-runonce
+  directory: runonce
 :puppet: true
 :classes:
 - '::pushing'

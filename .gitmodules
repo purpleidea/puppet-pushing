@@ -1,6 +1,0 @@
-[submodule "puppet/modules/common"]
-	path = puppet/modules/common
-	url = https://github.com/purpleidea/puppet-common
-[submodule "puppet/modules/runonce"]
-	path = puppet/modules/runonce
-	url = https://github.com/purpleidea/puppet-runonce/
