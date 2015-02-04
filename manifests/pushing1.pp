@@ -17,11 +17,13 @@
 
 # README: this is a module built for use with: Oh My Vagrant!
 
-class pushing::pushing1() {
+class pushing::pushing1(
+	$count = 42
+) {
 
 	# kick it off...
 	recursion { 'start':
-		count => 42,
+		count => $count,
 	}
 }
 
