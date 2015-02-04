@@ -25,6 +25,7 @@ class pushing::pushing0() {
 	# fibonacci.sh
 	file { '/root/standalone/':
 		source => 'puppet:///modules/pushing/standalone/',
+		recurse => true,
 		owner => 'root',
 		group => 'root',
 		mode => 770,			# u=rwx,g=rwx
