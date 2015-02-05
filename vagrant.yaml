@@ -15,6 +15,9 @@
 - type: git
   repository: https://github.com/purpleidea/puppet-runonce
   directory: runonce
+- type: git
+  repository: https://github.com/purpleidea/puppet-fsm
+  directory: fsm
 :puppet: true
 :classes:
 - '::pushing'
@@ -24,7 +27,7 @@
 - :name: pushing0
   :puppet: true
 :namespace: pushing
-:count: 3
+:count: 6
 :username: ''
 :password: ''
 :poolid: []
