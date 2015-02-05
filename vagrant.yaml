@@ -27,7 +27,7 @@
 - :name: pushing0
   :puppet: true
 :namespace: pushing
-:count: 6
+:count: 7
 :username: ''
 :password: ''
 :poolid: []
