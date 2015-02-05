@@ -18,6 +18,9 @@
 - type: git
   repository: https://github.com/purpleidea/puppet-fsm
   directory: fsm
+- type: git
+  repository: ~/code/puppet/puppet-poke
+  directory: poke
 :puppet: true
 :classes:
 - '::pushing'
@@ -25,6 +28,12 @@
 :cachier: false
 :vms:
 - :name: pushing0
+  :puppet: true
+- :name: pushing8-a
+  :puppet: true
+- :name: pushing8-b
+  :puppet: true
+- :name: pushing8-c
   :puppet: true
 :namespace: pushing
 :count: 7
