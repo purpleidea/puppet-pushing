@@ -39,7 +39,7 @@ class pushing::pushing8() {
 
 	# NOTE: we only see the notify message. no other exec/change is shown!
 	notify { 'counter':
-		value => "Counter is: ${::common_counter_simple}",
+		message => "Counter is: ${::common_counter_simple}",
 	}
 
 	include poke::listen

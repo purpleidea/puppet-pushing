@@ -24,7 +24,7 @@ class pushing::pushing7() {
 
 	# NOTE: we only see the notify message. no other exec/change is shown!
 	notify { 'counter':
-		value => "Value is: ${::common_counter_simple}",
+		message => "Value is: ${::common_counter_simple}",
 	}
 }
 
