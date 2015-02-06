@@ -21,7 +21,7 @@ class pushing::pushing8() {
 	$max_pokes = 8
 
 	# FIXME: list of ['a', 'b', 'c'] should be dynamic...
-	$hosts = suffix(prefix(['a', 'b', 'c'], 'pushing8-'), 'example.com')
+	$hosts = suffix(prefix(['a', 'b', 'c'], 'pushing8-'), '.example.com')
 	$index = inline_template("<%= @hosts.index('${::hostname}') %>")
 	$count = count($hosts)
 	if ($count <= 0) {
