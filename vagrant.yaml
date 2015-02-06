@@ -19,6 +19,9 @@
   repository: https://github.com/purpleidea/puppet-fsm
   directory: fsm
 - type: git
+  repository: https://github.com/purpleidea/puppet-ssh
+  directory: ssh
+- type: git
   repository: ~/code/puppet/puppet-poke
   directory: poke
 :puppet: true
