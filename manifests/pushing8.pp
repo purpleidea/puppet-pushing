@@ -22,7 +22,7 @@ class pushing::pushing8() {
 
 	# FIXME: list of ['a', 'b', 'c'] should be dynamic...
 	$hosts = suffix(prefix(['a', 'b', 'c'], 'pushing8-'), '.example.com')
-	$index = inline_template("<%= @hosts.index('${::hostname}') %>")
+	$index = inline_template("<%= @hosts.index('${::fqdn}') %>")
 	$count = count($hosts)
 	if ($count <= 0) {
 		fail('Need at least one host to continue!')
@@ -31,7 +31,7 @@ class pushing::pushing8() {
 		warning('Only one host is in the poke ring.')
 	}
 	# wrap around and form a loop
-	$plus1 = inline_template("<%= (@index.to_i >= @count) ? 0 : (@index.to_i+1) %>")
+	$plus1 = inline_template("<%= (@index.to_i+1 >= @count) ? 0 : (@index.to_i+1) %>")
 	$next1 = values_at($hosts, $plus1)	# next in list...
 
 	class { '::common::counter':
@@ -45,7 +45,8 @@ class pushing::pushing8() {
 	include poke::listen
 
 	# poke in a circular ring until $max_pokes
-	poke { "${next1}":
+	poke { "root@${next1}":	# XXX: have the user be an arg...
+		#user => 'root',	# XXX: TODO
 	}
 
 	exec { "/bin/echo running poke #: ${::common_counter_simple}":
