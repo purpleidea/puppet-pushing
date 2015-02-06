@@ -31,7 +31,7 @@ class pushing::pushing8() {
 		warning('Only one host is in the poke ring.')
 	}
 	# wrap around and form a loop
-	$plus1 = inline_template("<%= (@index >= @count) ? 0 : (@index+1) %>")
+	$plus1 = inline_template("<%= (@index.to_i >= @count) ? 0 : (@index.to_i+1) %>")
 	$next1 = values_at($hosts, $plus1)	# next in list...
 
 	class { '::common::counter':
