@@ -30,9 +30,9 @@ class pushing() {
 	# pull in the class that you want based on hostname...
 	if "${::hostname}" =~ /^pushing(\d+)$/ {
 		include "::pushing::${::hostname}"
-	# is there something trailing after the lesson, eg: lesson12-a
+	# is there something trailing after the lesson, eg: pushing8-a
 	} elsif "${::hostname}" =~ /^pushing(\d+)/ {
-	        $match = regsubst("${::hostname}", '^(lesson(\d+))([a-z\-]*)$', '\1')
+	        $match = regsubst("${::hostname}", '^(pushing(\d+))([a-z\-]*)$', '\1')
 		include "::pushing::${match}"
 	}
 }
