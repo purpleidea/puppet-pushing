@@ -32,14 +32,22 @@
 :vms:
 - :name: pushing0
   :puppet: true
+- :name: pushing1
+- :name: pushing2
+- :name: pushing3
+- :name: pushing4
+- :name: pushing5
+- :name: pushing6
+  :classes:
+    '::pushing::pushing6':
+      type: water
+      input: liquid
+- :name: pushing7
 - :name: pushing8-a
-  :puppet: true
 - :name: pushing8-b
-  :puppet: true
 - :name: pushing8-c
-  :puppet: true
 :namespace: pushing
-:count: 7
+:count: 0
 :username: ''
 :password: ''
 :poolid: []
