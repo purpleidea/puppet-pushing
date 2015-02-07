@@ -56,7 +56,7 @@ class pushing::pushing8() {
 			"/usr/bin/test ${::common_counter_simple} -lt ${max_pokes}",
 			"/usr/bin/test ${::common_counter_simple} -gt 0",
 		],
-		notify => Poke["${next1}"],
+		notify => Poke["root@${next1}"],
 	}
 }
 
