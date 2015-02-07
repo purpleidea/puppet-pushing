@@ -19,26 +19,13 @@
 
 class pushing::pushing6() {
 
-	#include ::fsm		# the two leading colons (::) are vital!
-	fsm::transition { 'water':
-		input => 'liquid',
-		#input => 'solid',
-		#input => 'gas',
-		#input => 'liquid',
-		#input => 'solid',
-		#input => 'gas',
-		#input => 'plasma',
-		#input => 'gas',
-		#chain_maxlength => 4,
+	class { '::common::counter':
 	}
 
-#	fsm::transition { 'hydrogen':
-#		#input => 'liquid',
-#		#input => 'gas',
-#		#input => 'plasma',
-#		input => 'gas',
-#	}
-
+	# NOTE: we only see the notify message. no other exec/change is shown!
+	notify { 'counter':
+		message => "Value is: ${::common_counter_simple}",
+	}
 }
 
 # vim: ts=8
