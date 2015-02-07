@@ -17,18 +17,11 @@
 
 # README: this is a module built for use with: Oh My Vagrant!
 
-class pushing::pushing6(
-	$type = '',
-	$input = ''
-) {
-
-	fsm::transition { "${type}":
-		input => "${input}",
-	}
+class pushing::pushing6() {
 
 	#include ::fsm		# the two leading colons (::) are vital!
-	#fsm::transition { 'water':
-		#input => 'liquid',
+	fsm::transition { 'water':
+		input => 'liquid',
 		#input => 'solid',
 		#input => 'gas',
 		#input => 'liquid',
@@ -37,7 +30,7 @@ class pushing::pushing6(
 		#input => 'plasma',
 		#input => 'gas',
 		#chain_maxlength => 4,
-	#}
+	}
 
 #	fsm::transition { 'hydrogen':
 #		#input => 'liquid',
